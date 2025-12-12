@@ -766,36 +766,103 @@
                 transform: translateY(0);
             }
         }
+        /* Add to community.html styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        background: var(--green) !important;
+        color: white !important;
+        border-radius: 8px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .menu-toggle:hover {
+        background: #0a3d24 !important;
+        transform: scale(1.05) !important;
+    }
+
+    .menu-toggle i {
+        font-size: 1.5rem !important;
+    }
+
+    nav {
+        padding: 1.5rem !important;
+        border-radius: 12px !important;
+        margin-top: 1rem !important;
+        border: 1px solid rgba(0,0,0,0.05) !important;
+    }
+
+    nav a {
+        padding: 0.75rem 1rem !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    nav a:hover {
+        background: rgba(15, 81, 50, 0.05) !important;
+        color: var(--green) !important;
+    }
+
+    nav a i {
+        margin-right: 10px !important;
+        width: 20px !important;
+        text-align: center !important;
+    }
+
+    .mobile-cta {
+        display: block !important;
+        background: var(--light-green) !important;
+        color: var(--green) !important;
+        text-align: center !important;
+        margin: 1rem 0 0 !important;
+        padding: 12px !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+    }
+
+    .mobile-cta:hover {
+        background: var(--green) !important;
+        color: white !important;
+    }
+
+    .cta {
+        display: none !important;
+    }
+}
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Header -->
-        <header>
-            <div class="logo">
-                <div class="mark">PR</div>
-                <div>
-                    <div>Proof & Response</div>
-                    <div style="font-size:12px; color: var(--muted);">Islamic responses to major Christian claims</div>
-                </div>
-            </div>
+<header>
+    <div class="logo">
+        <div class="mark">PR</div>
+        <div>
+            <div>Proof & Response</div>
+            <div style="font-size:12px; color: var(--muted);">Islamic responses to major Christian claims</div>
+        </div>
+    </div>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
 
-            <nav id="mainNav">
-                <a href="#key-disagreements"><i class="fas fa-scale-balanced"></i> Key Disagreements</a>
-                <a href="#proving-islam"><i class="fas fa-mosque"></i> Proving Islam</a>
-                <a href="#faq-section"><i class="fas fa-circle-question"></i> FAQ</a>
-                <a href="/community.html" class="mobile-cta">
-                    <i class="fas fa-question-circle"></i> Q&A Community
-                </a>
-                <a href="/community.html" class="cta">
-                    <i class="fas fa-question-circle"></i> View Questions
-                </a>
-            </nav>
-        </header>
+    <nav id="mainNav">
+        <a href="index.html#key-disagreements"><i class="fas fa-scale-balanced"></i> Key Disagreements</a>
+        <a href="index.html#proving-islam"><i class="fas fa-mosque"></i> Proving Islam</a>
+        <a href="index.html#faq-section"><i class="fas fa-circle-question"></i> FAQ</a>
+        <a href="/community.html" class="mobile-cta">
+            <i class="fas fa-question-circle"></i> Q&A Community
+        </a>
+        <a href="/community.html" class="cta">
+            <i class="fas fa-question-circle"></i> View Questions
+        </a>
+    </nav>
+</header>
 
         <div id="mainContent">
             <div class="empty-state" id="emptyState">
