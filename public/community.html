@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* -------------------------------------- */
+        /* ROOT + GLOBAL                          */
+        /* -------------------------------------- */
         :root {
             --green: #0F5132;
             --gold: #D6A24B;
@@ -30,7 +33,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
+            background: var(--bg);
             color: var(--char);
             line-height: 1.6;
             padding-bottom: 80px;
@@ -42,32 +45,40 @@
             padding: 20px;
         }
 
+        /* -------------------------------------- */
+        /* HEADER + NAV - MOBILE FIRST            */
+        /* -------------------------------------- */
         header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
             text-align: center;
             margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
+            justify-content: center;
             margin-bottom: 10px;
         }
 
-        .logo-icon {
+        .logo-icon,
+        .mark {
             width: 40px;
             height: 40px;
             background: var(--green);
             color: white;
             border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
         }
 
         .logo-text {
@@ -76,60 +87,33 @@
             color: var(--green);
         }
 
-        /* Header and Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            position: relative;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 0;
-        }
-
-        .mark {
-            width: 40px;
-            height: 40px;
-            background: var(--green);
-            color: white;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
         .menu-toggle {
-            display: none;
+            display: block;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--green);
+            font-size: 1.7rem;
             cursor: pointer;
+            color: var(--green);
             padding: 8px;
             z-index: 1000;
         }
 
         nav {
             display: none;
-            width: 100%;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 1rem 0;
-            background: white;
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
+            flex-direction: column;
+            background: white;
+            padding: 1.2rem 1rem;
+            gap: 10px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
             z-index: 999;
-            box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1);
-            border-radius: 0 0 10px 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         nav.active {
@@ -138,56 +122,37 @@
         }
 
         nav a {
-            padding: 10px 20px;
-            color: var(--char);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.2s;
-        }
-
-        nav a:hover {
-            background: var(--light-green);
-            color: var(--green);
-        }
-
-        nav a i {
-            width: 20px;
-            text-align: center;
-        }
-
-        nav a {
-            color: var(--char);
-            text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 4px;
+            padding: 8px 16px;
             font-weight: 500;
+            color: var(--char);
+            text-decoration: none;
+            border-radius: 4px;
             transition: all 0.2s;
-            white-space: nowrap;
-            font-size: 0.95rem;
         }
 
         nav a:hover {
             background: var(--bg);
+            color: var(--green);
         }
 
         .cta-button {
             background: var(--green);
             color: white;
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
-            font-size: 0.95rem;
             white-space: nowrap;
         }
 
+        /* -------------------------------------- */
+        /* QUESTION + ANSWER CARDS - MOBILE FIRST */
+        /* -------------------------------------- */
         .question-card {
             background: white;
             border-radius: 12px;
-            padding: 25px;
+            padding: 20px;
             margin-bottom: 30px;
             border: 1px solid var(--border);
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
@@ -195,8 +160,9 @@
 
         .question-header {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
             margin-bottom: 15px;
         }
 
@@ -206,42 +172,40 @@
             background: var(--bg);
             border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             font-weight: 600;
             color: var(--muted);
             flex-shrink: 0;
         }
 
         .question-info {
-            flex: 1;
-            min-width: 0;
+            width: 100%;
         }
 
         .question-author {
             font-weight: 600;
             color: var(--char);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-size: 14px;
         }
 
         .question-date {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--muted);
         }
 
         .question-content {
-            font-size: 18px;
+            margin: 20px 0;
+            font-size: 16px;
             line-height: 1.6;
-            margin-bottom: 20px;
-            padding-left: 10px;
-            word-wrap: break-word;
+            word-break: break-word;
+            padding-left: 0;
         }
 
         .question-actions {
             display: flex;
-            gap: 15px;
+            flex-direction: column;
+            gap: 10px;
             padding-top: 20px;
             border-top: 1px solid var(--border);
             flex-wrap: wrap;
@@ -251,28 +215,27 @@
             background: none;
             border: none;
             color: var(--muted);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
             padding: 8px 16px;
             border-radius: 6px;
-            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.2s;
+            width: 100%;
         }
 
         .action-button:hover {
             background: var(--bg);
         }
 
-        .action-button.active {
-            background: var(--light-green);
-            color: var(--green);
-        }
-
+        .action-button.active,
         .action-button.liked {
             color: var(--green);
+            background: var(--light-green);
         }
 
         .reply-button {
@@ -295,32 +258,25 @@
             background: var(--light-green);
         }
 
-        .reply-icon {
-            font-size: 16px;
-        }
-
-        /* Authors Answer - Highlighted */
-        .authors-answer {
+        /* -------------------------------------- */
+        /* REPLIES - MOBILE FIRST                 */
+        /* -------------------------------------- */
+        .answers-section {
             margin-top: 25px;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(15, 81, 50, 0.1), rgba(15, 81, 50, 0.05));
-            border-radius: 8px;
-            border-left: 4px solid var(--green);
-            position: relative;
-            overflow: hidden;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            animation: fadeIn 0.3s ease;
         }
 
-        .authors-answer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--green), var(--gold));
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
 
-        /* Regular Replies */
         .reply-card {
             background: var(--light-green);
             border-left: 3px solid var(--green);
@@ -331,12 +287,12 @@
         }
 
         .reply-card .reply-card {
-            margin-left: var(--indent);
-            border-left-color: rgba(15, 81, 50, 0.5);
+            margin-left: 10px;
+            border-left-color: rgba(15,81,50,0.5);
         }
 
         .reply-card .reply-card .reply-card {
-            border-left-color: rgba(15, 81, 50, 0.3);
+            border-left-color: rgba(15,81,50,0.3);
         }
 
         .reply-header {
@@ -382,28 +338,52 @@
             padding-left: 0;
         }
 
-        .answers-section {
+        /* -------------------------------------- */
+        /* AUTHOR'S ANSWER - MOBILE FIRST         */
+        /* -------------------------------------- */
+        .authors-answer {
             margin-top: 25px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border);
-            animation: fadeIn 0.3s ease;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--green);
+            background: linear-gradient(135deg, rgba(15, 81, 50, 0.1), rgba(15, 81, 50, 0.05));
+            position: relative;
+            overflow: hidden;
         }
 
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
+        .authors-answer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--gold));
         }
 
-        /* Side Form */
+        /* -------------------------------------- */
+        /* SIDE FORM - MOBILE FIRST               */
+        /* -------------------------------------- */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
         .side-form-container {
             position: fixed;
             top: 0;
             right: 0;
-            width: 350px;
+            width: 100%;
             height: 100%;
             background: white;
             box-shadow: -2px 0 10px rgba(0,0,0,0.1);
@@ -459,7 +439,8 @@
             color: var(--char);
         }
 
-        .form-input {
+        .form-input,
+        .form-textarea {
             width: 100%;
             padding: 10px 12px;
             border: 1px solid var(--border);
@@ -468,19 +449,14 @@
             font-size: 14px;
         }
 
-        .form-input:focus {
+        .form-input:focus,
+        .form-textarea:focus {
             outline: none;
             border-color: var(--green);
         }
 
         .form-textarea {
-            width: 100%;
-            min-height: 150px;
-            padding: 12px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 14px;
+            min-height: 120px;
             resize: vertical;
             flex: 1;
         }
@@ -508,27 +484,15 @@
             cursor: not-allowed;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            display: none;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
+        /* -------------------------------------- */
+        /* OWNER BUTTON - MOBILE FIRST            */
+        /* -------------------------------------- */
         .owner-button {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
             background: white;
             border: 2px solid var(--green);
             border-radius: 50%;
@@ -551,6 +515,21 @@
             transform: scale(1.1);
         }
 
+        /* -------------------------------------- */
+        /* FOOTER - MOBILE FIRST                  */
+        /* -------------------------------------- */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* -------------------------------------- */
+        /* UTILITY CLASSES                        */
+        /* -------------------------------------- */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
@@ -563,21 +542,6 @@
             opacity: 0.5;
         }
 
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            color: var(--muted);
-            font-size: 14px;
-            margin-top: 40px;
-            border-top: 1px solid var(--border);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Loading spinner */
         .spinner {
             display: inline-block;
             width: 16px;
@@ -588,251 +552,139 @@
             animation: spin 1s ease-in-out infinite;
         }
 
+        /* -------------------------------------- */
+        /* ANIMATIONS                             */
+        /* -------------------------------------- */
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        /* Mobile Responsive */
-        /* Mobile-First Responsive Design */
-        @media (max-width: 1024px) {
+        /* ============================================================
+           TABLET ≥ 768px
+        ============================================================ */
+        @media (min-width: 768px) {
             .container {
-                max-width: 100%;
                 padding: 0 20px;
             }
 
-            .question-card {
-                padding: 20px;
-            }
-
-            .question-actions {
-                gap: 10px;
-                flex-wrap: wrap;
-            }
-
-            .action-button {
-                padding: 8px 12px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            html {
-                font-size: 15px;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-            
-            .authors-answer,
-            .reply-card {
-                padding: 15px;
-            }
-            
-            .reply-card .reply-card {
-                margin-left: 10px;
-            }
-            
-            nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 5px;
-            }
-            
-            nav a {
-                width: 100%;
-                text-align: center;
-                margin: 2px 0;
-            }
-        }
-
-        @media (min-width: 769px) {
             .menu-toggle {
                 display: none;
             }
-            
+
             nav {
-                display: flex;
                 position: static;
-                width: auto;
-                background: transparent;
-                box-shadow: none;
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                background: none;
                 padding: 0;
+                box-shadow: none;
+                margin-top: 0;
+                animation: none;
+            }
+
+            nav a {
+                padding: 8px 14px;
+            }
+
+            .question-card {
+                padding: 25px;
+            }
+
+            .question-header {
+                flex-direction: row;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .question-info {
+                width: auto;
+            }
+
+            .question-author {
+                font-size: 16px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .question-date {
+                font-size: 14px;
+            }
+
+            .question-content {
+                font-size: 18px;
+                padding-left: 10px;
+            }
+
+            .question-actions {
                 flex-direction: row;
                 gap: 15px;
             }
-            
-            nav a {
-                padding: 8px 16px;
-            }
-            
-            .cta-button {
-                background: var(--green);
-                color: white;
-                border-radius: 4px;
-            }
-            
-            .cta-button:hover {
-                background: #0a3b22;
-                color: white;
-            }
-        }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
-            }
-            
-            .question-card {
-                padding: 15px;
-            }
-            
-            .question-content {
-                font-size: 16px;
-            }
-            
             .action-button {
-                padding: 6px 12px;
-                font-size: 13px;
+                width: auto;
+                justify-content: flex-start;
             }
-            
-            .form-textarea {
-                min-height: 120px;
+
+            .side-form-container {
+                width: 350px;
             }
-            
-            nav {
-                gap: 6px;
+
+            .owner-button {
+                width: 44px;
+                height: 44px;
+                bottom: 20px;
+                right: 20px;
             }
-            
-            nav a, .cta-button {
-                padding: 5px 10px;
-                font-size: 0.85rem;
+
+            .authors-answer {
+                padding: 20px;
             }
-            
-            .question-author,
-            .reply-author {
-                font-size: 14px;
-            }
-            
-            .question-date,
-            .reply-date {
-                font-size: 12px;
+
+            .reply-card .reply-card {
+                margin-left: var(--indent);
             }
         }
 
-        @media (max-width: 480px) {
+        /* ============================================================
+           LAPTOP / DESKTOP ≥ 1024px
+        ============================================================ */
+        @media (min-width: 1024px) {
             .owner-button {
-                width: 40px;
-                height: 40px;
-                bottom: 15px;
-                right: 15px;
+                width: 50px;
+                height: 50px;
+                bottom: 30px;
+                right: 30px;
             }
-            
+
             .owner-button i {
-                font-size: 16px;
-            }
-            
-            .logo {
-                flex-direction: column;
-                gap: 5px;
-            }
-            
-            .logo-text {
                 font-size: 20px;
             }
-            
-            .question-author,
-            .reply-author {
-                font-size: 14px;
+
+            .logo {
+                flex-direction: row;
+                gap: 10px;
             }
-            
-            .question-date,
-            .reply-date {
-                font-size: 12px;
+
+            .logo-text {
+                font-size: 24px;
             }
-            
+
             .form-textarea {
-                min-height: 120px;
+                min-height: 150px;
             }
         }
-        /* Animations */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* Add to community.html styles */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 44px !important;
-        height: 44px !important;
-        background: var(--green) !important;
-        color: white !important;
-        border-radius: 8px !important;
-        transition: all 0.3s ease !important;
-    }
-
-    .menu-toggle:hover {
-        background: #0a3d24 !important;
-        transform: scale(1.05) !important;
-    }
-
-    .menu-toggle i {
-        font-size: 1.5rem !important;
-    }
-
-    nav {
-        padding: 1.5rem !important;
-        border-radius: 12px !important;
-        margin-top: 1rem !important;
-        border: 1px solid rgba(0,0,0,0.05) !important;
-    }
-
-    nav a {
-        padding: 0.75rem 1rem !important;
-        border-radius: 8px !important;
-        transition: all 0.2s ease !important;
-    }
-
-    nav a:hover {
-        background: rgba(15, 81, 50, 0.05) !important;
-        color: var(--green) !important;
-    }
-
-    nav a i {
-        margin-right: 10px !important;
-        width: 20px !important;
-        text-align: center !important;
-    }
-
-    .mobile-cta {
-        display: block !important;
-        background: var(--light-green) !important;
-        color: var(--green) !important;
-        text-align: center !important;
-        margin: 1rem 0 0 !important;
-        padding: 12px !important;
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-    }
-
-    .mobile-cta:hover {
-        background: var(--green) !important;
-        color: white !important;
-    }
-
-    .cta {
-        display: none !important;
-    }
-}
     </style>
 </head>
 <body>
