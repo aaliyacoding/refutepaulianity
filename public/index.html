@@ -1361,6 +1361,17 @@
             .section-header {
                 margin-bottom: 25px;
             }
+                /* ADD THIS: Make bottom question container full width on desktop */
+    .question-container-bottom {
+        max-width: 900px; /* Same as FAQ section */
+        width: 100%;
+    }
+    
+    /* Make the question card inside take full width */
+    .question-container-bottom .question-card-3d {
+        max-width: 100%;
+        min-width: 100%;
+    }
         }
 
         @media (max-width: 480px) {
