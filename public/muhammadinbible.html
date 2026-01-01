@@ -138,16 +138,6 @@
             }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-        }
-
         /* ============================================
            LOGO IMAGE STYLES
            ============================================ */
@@ -216,21 +206,6 @@
             min-height: 60px;
         }
 
-        .header-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .header-content:hover::before {
-            left: 100%;
-        }
-
         .logo {
             display: flex;
             align-items: center;
@@ -262,134 +237,6 @@
             letter-spacing: 0.5px;
         }
 
-        .mobile-nav-toggle {
-            width: 40px;
-            height: 40px;
-            background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            position: relative;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .mobile-nav-toggle span {
-            width: 20px;
-            height: 2px;
-            background: var(--pure-white);
-            border-radius: 1px;
-            transition: all var(--transition-fast);
-            transform-origin: center;
-        }
-
-        .mobile-nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(4px, 4px);
-        }
-
-        .mobile-nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -5px);
-        }
-
-        /* ============================================
-           NAVIGATION
-           ============================================ */
-        nav {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--glass-white);
-            backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius);
-            padding: 15px;
-            margin-top: 8px;
-            box-shadow: var(--shadow-strong);
-            z-index: 1000;
-        }
-
-        nav.active {
-            display: block;
-        }
-
-        nav a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            color: var(--pure-white);
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 12px;
-            transition: all var(--transition-fast);
-            margin-bottom: 6px;
-        }
-
-        nav a:last-child {
-            margin-bottom: 0;
-        }
-
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-
-        nav a i {
-            color: var(--neon-blue);
-            width: 18px;
-            text-align: center;
-            font-size: 16px;
-        }
-
-        .cta-button {
-            background: var(--gradient-primary);
-            color: var(--pure-white);
-            padding: 10px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all var(--transition-fast);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-strong), var(--shadow-neon);
-        }
-
         /* ============================================
            MAIN CONTENT AREA
            ============================================ */
@@ -408,145 +255,7 @@
         }
 
         /* ============================================
-           FLOATING FOOTER
-           ============================================ */
-        .floating-footer {
-            text-align: center;
-            padding: 40px 0;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            margin-top: 60px;
-            width: 100%;
-            position: relative;
-        }
-
-        .floating-footer .container {
-            background: var(--glass-white);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius-lg);
-            padding: 30px;
-            box-shadow: var(--shadow-strong);
-        }
-
-        .floating-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
-
-        /* ============================================
-           RESPONSIVE NAVIGATION
-           ============================================ */
-        @media (min-width: 768px) {
-            .mobile-nav-toggle {
-                display: none;
-            }
-
-            nav {
-                display: flex !important;
-                position: static;
-                background: transparent;
-                backdrop-filter: none;
-                border: none;
-                padding: 0;
-                margin: 0;
-                box-shadow: none;
-                animation: none;
-                gap: 20px;
-            }
-
-            nav a {
-                padding: 8px 0;
-                margin: 0;
-                background: transparent;
-                border-radius: 0;
-                position: relative;
-            }
-
-            nav a::before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background: var(--neon-blue);
-                transition: width 0.3s ease;
-            }
-
-            nav a:hover::before {
-                width: 100%;
-            }
-
-            nav a:hover {
-                background: transparent;
-                transform: none;
-                box-shadow: none;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .header-content {
-                padding: 15px 25px;
-            }
-            
-            .logo-image-container {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .logo-title {
-                font-size: 20px;
-            }
-        }
-
-        /* ============================================
-           CUSTOM SCROLLBAR
-           ============================================ */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gradient-secondary);
-        }
-
-        /* Selection Color */
-        ::selection {
-            background: rgba(0, 229, 255, 0.3);
-            color: var(--pure-white);
-        }
-
-        /* Focus styles for accessibility */
-        button:focus-visible,
-        a:focus-visible,
-        input:focus-visible,
-        textarea:focus-visible {
-            outline: 3px solid var(--neon-blue);
-            outline-offset: 3px;
-            border-radius: 8px;
-        }
-
-        /* ============================================
-           HERO VIDEO SECTION
+           HERO SECTION
            ============================================ */
         .hero-video-section {
             position: relative;
@@ -570,17 +279,6 @@
             overflow: hidden;
         }
 
-        .video-hero-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            z-index: 2;
-        }
-
         .video-wrapper {
             position: relative;
             border-radius: var(--border-radius-lg);
@@ -593,15 +291,6 @@
             border: 2px solid rgba(0, 229, 255, 0.2);
         }
 
-        .video-wrapper:hover {
-            transform: perspective(1000px) rotateX(0) scale(1.02);
-            box-shadow: 
-                var(--shadow-strong),
-                0 0 80px rgba(0, 229, 255, 0.5),
-                var(--shadow-neon);
-            border-color: rgba(0, 229, 255, 0.4);
-        }
-
         .video-wrapper video {
             width: 100%;
             height: auto;
@@ -609,101 +298,22 @@
             border-radius: var(--border-radius-lg);
         }
 
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(10, 10, 10, 0.7) 0%,
-                rgba(10, 10, 10, 0.3) 40%,
-                transparent 100%
-            );
-            display: flex;
-            align-items: flex-end;
-            padding: 40px;
-            opacity: 1;
-            transition: opacity var(--transition-fast);
-        }
-
-        .video-title {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--pure-white);
-            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.9);
-            background: linear-gradient(135deg, var(--pure-white), var(--neon-blue), var(--neon-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 0;
-            line-height: 1.2;
-        }
-
         /* ============================================
-           PROPHECY GRID SYSTEM
+           PROPHECY GRID - ALL 25 DISPLAYED
            ============================================ */
-        .prophecy-intro {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
-        }
-
-        .intro-title {
-            font-family: var(--font-heading);
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, var(--neon-blue), var(--neon-green), var(--neon-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .intro-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.7;
-            margin-bottom: 40px;
-        }
-
-        .prophecy-counter {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(0, 255, 136, 0.1);
-            padding: 15px 30px;
-            border-radius: 50px;
-            border: 2px solid rgba(0, 255, 136, 0.3);
-            margin-bottom: 30px;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
-        }
-
-        .counter-number {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--neon-green);
-            font-weight: bold;
-        }
-
-        .counter-text {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Prophecy Cards Grid */
-        .prophecy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+        .prophecy-section {
             max-width: 1400px;
             margin: 0 auto 60px;
             padding: 0 20px;
         }
 
-        /* Prophecy Card - Clickable */
+        .prophecy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* Prophecy Card */
         .prophecy-card {
             background: linear-gradient(
                 145deg,
@@ -712,102 +322,90 @@
             );
             backdrop-filter: blur(25px);
             border-radius: var(--border-radius);
-            padding: 30px;
+            padding: 35px;
             border: 1px solid var(--glass-border);
             box-shadow: var(--shadow-medium);
             position: relative;
             overflow: hidden;
             transition: all var(--transition-normal);
-            cursor: pointer;
             animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
-        /* Staggered animation delays */
-        .prophecy-card:nth-child(1) { animation-delay: 0.4s; }
-        .prophecy-card:nth-child(2) { animation-delay: 0.5s; }
-        .prophecy-card:nth-child(3) { animation-delay: 0.6s; }
-        .prophecy-card:nth-child(4) { animation-delay: 0.7s; }
-        .prophecy-card:nth-child(5) { animation-delay: 0.8s; }
-        .prophecy-card:nth-child(6) { animation-delay: 0.9s; }
-        .prophecy-card:nth-child(7) { animation-delay: 1.0s; }
-        .prophecy-card:nth-child(8) { animation-delay: 1.1s; }
-        .prophecy-card:nth-child(9) { animation-delay: 1.2s; }
-        .prophecy-card:nth-child(10) { animation-delay: 1.3s; }
-
-        .prophecy-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(
-                circle at 20% 80%,
-                rgba(0, 229, 255, 0.08) 0%,
-                transparent 70%
-            );
-            z-index: -1;
-            transition: all var(--transition-slow);
-        }
+        /* Staggered animation delays for all 25 cards */
+        .prophecy-card:nth-child(1) { animation-delay: 0.3s; }
+        .prophecy-card:nth-child(2) { animation-delay: 0.4s; }
+        .prophecy-card:nth-child(3) { animation-delay: 0.5s; }
+        .prophecy-card:nth-child(4) { animation-delay: 0.6s; }
+        .prophecy-card:nth-child(5) { animation-delay: 0.7s; }
+        .prophecy-card:nth-child(6) { animation-delay: 0.8s; }
+        .prophecy-card:nth-child(7) { animation-delay: 0.9s; }
+        .prophecy-card:nth-child(8) { animation-delay: 1.0s; }
+        .prophecy-card:nth-child(9) { animation-delay: 1.1s; }
+        .prophecy-card:nth-child(10) { animation-delay: 1.2s; }
+        .prophecy-card:nth-child(11) { animation-delay: 1.3s; }
+        .prophecy-card:nth-child(12) { animation-delay: 1.4s; }
+        .prophecy-card:nth-child(13) { animation-delay: 1.5s; }
+        .prophecy-card:nth-child(14) { animation-delay: 1.6s; }
+        .prophecy-card:nth-child(15) { animation-delay: 1.7s; }
+        .prophecy-card:nth-child(16) { animation-delay: 1.8s; }
+        .prophecy-card:nth-child(17) { animation-delay: 1.9s; }
+        .prophecy-card:nth-child(18) { animation-delay: 2.0s; }
+        .prophecy-card:nth-child(19) { animation-delay: 2.1s; }
+        .prophecy-card:nth-child(20) { animation-delay: 2.2s; }
+        .prophecy-card:nth-child(21) { animation-delay: 2.3s; }
+        .prophecy-card:nth-child(22) { animation-delay: 2.4s; }
+        .prophecy-card:nth-child(23) { animation-delay: 2.5s; }
+        .prophecy-card:nth-child(24) { animation-delay: 2.6s; }
+        .prophecy-card:nth-child(25) { animation-delay: 2.7s; }
 
         .prophecy-card:hover {
-            transform: translateY(-10px) scale(1.03);
+            transform: translateY(-10px);
             box-shadow: 
                 var(--shadow-strong),
                 0 20px 50px rgba(0, 0, 0, 0.4),
                 var(--shadow-neon);
             border-color: rgba(0, 229, 255, 0.4);
-            z-index: 10;
         }
 
-        .prophecy-card:hover::before {
-            background: radial-gradient(
-                circle at 20% 80%,
-                rgba(0, 229, 255, 0.2) 0%,
-                transparent 70%
-            );
-        }
-
-        .prophecy-card.active {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 
-                var(--shadow-strong),
-                0 30px 60px rgba(0, 229, 255, 0.6),
-                0 0 100px rgba(0, 229, 255, 0.3);
-            border-color: var(--neon-blue);
-            z-index: 20;
+        /* Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 229, 255, 0.3);
         }
 
         .card-number {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: var(--gradient-primary);
-            border-radius: 50%;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--pure-white);
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(26, 35, 126, 0.5);
+            box-shadow: 0 5px 20px rgba(26, 35, 126, 0.5);
+            flex-shrink: 0;
+        }
+
+        .card-title-section {
+            flex: 1;
         }
 
         .card-title {
             font-family: var(--font-heading);
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
             background: linear-gradient(135deg, var(--pure-white), var(--neon-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.3;
+            margin-bottom: 5px;
         }
 
         .card-reference {
@@ -820,319 +418,77 @@
             border-radius: 20px;
             font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 15px;
             border: 1px solid rgba(0, 229, 255, 0.3);
         }
 
-        .card-preview {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-
-        .click-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--neon-green);
-            font-size: 0.9rem;
-            margin-top: 15px;
-            opacity: 0.8;
-        }
-
-        /* ============================================
-           DETAIL PANEL - EXPANDS WHEN CARD IS CLICKED
-           ============================================ */
-        .detail-panel {
-            display: none;
-            background: linear-gradient(
-                145deg,
-                rgba(255, 255, 255, 0.1) 0%,
-                rgba(0, 0, 0, 0.2) 100%
-            );
-            backdrop-filter: blur(30px);
-            border-radius: var(--border-radius-lg);
-            padding: 40px;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-strong);
-            margin: 30px auto 60px;
-            max-width: 1000px;
-            animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        /* Bible Verse */
+        .bible-verse {
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.15), rgba(0, 0, 0, 0.2));
+            border-radius: var(--border-radius-sm);
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--neon-blue);
+            font-size: 1.1rem;
+            line-height: 1.7;
             position: relative;
-            overflow: hidden;
+            font-style: italic;
         }
 
-        .detail-panel::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-green), var(--neon-gold));
-        }
-
-        .detail-panel.active {
-            display: block;
-        }
-
-        .detail-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(0, 229, 255, 0.3);
-        }
-
-        .detail-title {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            background: linear-gradient(135deg, var(--pure-white), var(--neon-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 0;
-        }
-
-        .close-detail {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 50, 50, 0.1);
-            border: 1px solid rgba(255, 50, 50, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ff6b6b;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-
-        .close-detail:hover {
-            background: rgba(255, 50, 50, 0.2);
-            transform: rotate(90deg);
-        }
-
-        /* Evidence Sections */
+        /* Evidence Section */
         .evidence-section {
-            margin-bottom: 30px;
+            margin: 20px 0;
         }
 
         .section-title {
             display: flex;
             align-items: center;
             gap: 12px;
-            color: var(--neon-gold);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            font-family: var(--font-heading);
-        }
-
-        .bible-verse {
-            background: linear-gradient(135deg, rgba(26, 35, 126, 0.2), rgba(0, 0, 0, 0.3));
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 20px 0;
-            border-left: 5px solid var(--neon-blue);
-            font-size: 1.2rem;
-            line-height: 1.7;
-            position: relative;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .bible-verse::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 15px;
-            font-size: 3.5rem;
-            color: rgba(0, 229, 255, 0.3);
-            font-family: var(--font-heading);
-            opacity: 0.7;
-        }
-
-        /* Refutation Section - Why it CAN'T be Jesus */
-        .refutation-section {
-            background: linear-gradient(135deg, rgba(255, 50, 50, 0.1), rgba(179, 136, 255, 0.1));
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 25px 0;
-            border-left: 5px solid #ff6b6b;
-        }
-
-        .refutation-title {
-            color: #ff6b6b;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .refutation-points {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .refutation-point {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(255, 50, 50, 0.05);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 50, 50, 0.2);
-        }
-
-        .refutation-point i {
-            color: #ff6b6b;
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-
-        /* Fulfillment Section */
-        .fulfillment-section {
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 229, 255, 0.1));
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 25px 0;
-            border-left: 5px solid var(--neon-green);
-        }
-
-        .fulfillment-title {
             color: var(--neon-green);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-family: var(--font-accent);
         }
 
-        /* Evidence Points */
         .evidence-points {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin: 20px 0;
+            gap: 10px;
         }
 
         .evidence-point {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
-            padding: 15px;
+            gap: 10px;
+            padding: 10px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 229, 255, 0.05));
-            border-radius: 12px;
-            transition: all var(--transition-fast);
+            border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .evidence-point:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 229, 255, 0.1));
-            transform: translateX(5px);
-            border-color: rgba(0, 229, 255, 0.3);
-        }
-
         .evidence-point i {
-            color: var(--neon-blue);
-            font-size: 1.2rem;
-            margin-top: 3px;
+            color: var(--neon-green);
+            font-size: 1rem;
+            margin-top: 2px;
             flex-shrink: 0;
         }
 
-        /* ============================================
-           CONCLUSION SECTION
-           ============================================ */
-        .conclusion-section {
-            background: linear-gradient(
-                135deg,
-                rgba(26, 35, 126, 0.2) 0%,
-                rgba(0, 229, 255, 0.15) 100%
-            );
-            backdrop-filter: blur(35px);
-            border-radius: var(--border-radius-xl);
-            padding: 60px;
-            text-align: center;
-            border: 1px solid var(--glass-border);
-            margin: 80px auto 40px;
-            max-width: 1200px;
-            position: relative;
-            overflow: hidden;
-            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s both;
+        /* Fulfillment Section */
+        .fulfillment-section {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 229, 255, 0.05));
+            border-radius: var(--border-radius-sm);
+            padding: 20px;
+            margin: 20px 0 0;
+            border-left: 4px solid var(--neon-gold);
         }
 
-        .conclusion-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-        }
-
-        .conclusion-title {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, var(--neon-blue), var(--neon-green), var(--neon-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .final-statement {
-            font-size: 1.5rem;
-            line-height: 1.9;
-            color: rgba(255, 255, 255, 0.95);
-            margin: 0 auto 50px;
-            max-width: 900px;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
-            border-radius: var(--border-radius);
-            border: 1px solid var(--glass-border);
-            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .islamic-affirmation {
-            display: inline-block;
-            padding: 25px 50px;
-            background: linear-gradient(135deg, rgba(255, 179, 0, 0.15), rgba(0, 229, 255, 0.15));
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(255, 179, 0, 0.4);
-            font-family: var(--font-arabic);
-            font-size: 1.5rem;
+        .fulfillment-title {
             color: var(--neon-gold);
-            margin-top: 30px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(255, 179, 0, 0.2);
-            transition: all var(--transition-normal);
-        }
-
-        .islamic-affirmation:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 179, 0, 0.3);
-            border-color: rgba(255, 179, 0, 0.6);
-        }
-
-        .islamic-affirmation::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s ease;
-        }
-
-        .islamic-affirmation:hover::before {
-            left: 100%;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-accent);
         }
 
         /* ============================================
@@ -1141,100 +497,44 @@
         @media (max-width: 768px) {
             .prophecy-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
                 padding: 0 15px;
-            }
-            
-            .intro-title {
-                font-size: 2.2rem;
             }
             
             .prophecy-card {
                 padding: 25px;
-                min-height: 160px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .card-number {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.6rem;
+            }
+            
+            .bible-verse {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .prophecy-card {
+                padding: 20px;
             }
             
             .card-title {
                 font-size: 1.4rem;
             }
-            
-            .detail-panel {
-                padding: 25px 20px;
-                margin: 20px 15px 40px;
-            }
-            
-            .detail-title {
-                font-size: 1.8rem;
-            }
-            
-            .conclusion-section {
-                padding: 30px 20px;
-                margin: 40px 15px;
-            }
-            
-            .conclusion-title {
-                font-size: 2.2rem;
-            }
-            
-            .final-statement {
-                font-size: 1.2rem;
-                padding: 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .video-title {
-                font-size: 1.8rem;
-            }
-            
-            .intro-title {
-                font-size: 1.8rem;
-            }
-            
-            .counter-number {
-                font-size: 2rem;
-            }
-            
-            .prophecy-card {
-                padding: 20px;
-                min-height: 150px;
-            }
-            
-            .card-title {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* ============================================
-           ANIMATION KEYFRAMES
-           ============================================ */
-        @keyframes highlightPulse {
-            0%, 100% { 
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 229, 255, 0.05));
-                box-shadow: 0 5px 20px rgba(0, 229, 255, 0.1);
-            }
-            50% { 
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 229, 255, 0.1));
-                box-shadow: 0 5px 25px rgba(0, 229, 255, 0.2);
-            }
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-
-        .highlight {
-            animation: highlightPulse 2s ease-in-out;
-        }
-
-        .floating {
-            animation: floatUp 3s ease-in-out infinite;
-        }
-
-        /* Loading Animation */
-        .loading-card {
-            animation: pulse 1.5s infinite ease-in-out;
         }
     </style>
 </head>
@@ -1253,19 +553,6 @@
                         <div class="logo-subtitle">Islamic responses to major Christian claims</div>
                     </div>
                 </a>
-
-                <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-                <nav id="mainNav">
-                    <a href="index.html">
-                        <i class="fas fa-home"></i>
-                        <span>Back to Home</span>
-                    </a>
-                </nav>
             </div>
         </div>
     </header>
@@ -1284,506 +571,1194 @@
             </div>
         </div>
 
-        <!-- Prophecy Introduction -->
-        <div class="prophecy-intro">
-            <h1 class="intro-title">Muhammad in the Bible:<br>25 Prophecies Fulfilled</h1>
-            <div class="prophecy-counter">
-                <div class="counter-number">25</div>
-                <div class="counter-text">Clear Biblical Prophecies</div>
-            </div>
-            <p class="intro-subtitle">
-                The Bible contains at least 25 distinct prophecies about the coming of Prophet Muhammad (peace be upon him). 
-                Each prophecy adds another layer of evidence, pointing unmistakably to the final messenger of God. 
-                Click on any prophecy card below to see the detailed evidence and refutation of Christian misinterpretations.
-            </p>
-        </div>
-
-        <!-- Prophecy Cards Grid - 25 Cards -->
-        <div class="prophecy-grid" id="prophecyGrid">
-            <!-- Cards will be dynamically generated by JavaScript -->
-        </div>
-
-        <!-- Detail Panel (Initially Hidden) -->
-        <div class="detail-panel" id="detailPanel">
-            <div class="detail-header">
-                <h2 class="detail-title" id="detailTitle">Prophecy Detail</h2>
-                <div class="close-detail" id="closeDetail">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-            
-            <div class="evidence-section">
-                <h3 class="section-title">
-                    <i class="fas fa-scroll"></i>
-                    Biblical Reference
-                </h3>
-                <div class="bible-verse" id="bibleVerse">
-                    Loading Bible verse...
-                </div>
-            </div>
-            
-            <div class="evidence-section">
-                <h3 class="section-title">
-                    <i class="fas fa-eye"></i>
-                    How This Points to Muhammad (PBUH)
-                </h3>
-                <div class="evidence-points" id="muhammadEvidence">
-                    <div class="evidence-point">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Loading evidence...</span>
+        <!-- Prophecy Grid - ALL 25 PROPHECIES -->
+        <div class="prophecy-section">
+            <div class="prophecy-grid" id="prophecyGrid">
+                <!-- Prophecy 1 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">1</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">The Prophet from Brothers of Israelites</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Deuteronomy 18:18
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "I will raise up for them a prophet like you from among their brothers. I will put my words in his mouth, and he will tell them everything I command him."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Comes from "brothers" of Israelites (Ishmaelites, not Israelites)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Brought a complete law (Shariah) like Moses</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Spoke God's words directly (Quranic revelation)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) was an Ishmaelite descendant who received the Quran containing complete divine law.</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="refutation-section" id="refutationSection">
-                <h3 class="refutation-title">
-                    <i class="fas fa-times-circle"></i>
-                    Why This CANNOT Be Jesus
-                </h3>
-                <div class="refutation-points" id="refutationPoints">
-                    <div class="refutation-point">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span>Loading refutation...</span>
+
+                <!-- Prophecy 2 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">2</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Name "Muhammad" in Hebrew</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Song of Solomon 5:16
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "His mouth is sweetness itself; he is altogether lovely (מַחֲמַדִּים - machmadim)."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Hebrew "machmadim" means "altogether lovely" or "most praised one"</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muhammad means "the praised one" in Arabic</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Early Christian translations hide the name by translating it</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>The Hebrew text contains Muhammad's name exactly, pointing to the final prophet.</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="fulfillment-section">
-                <h3 class="fulfillment-title">
-                    <i class="fas fa-star"></i>
-                    Historical Fulfillment
-                </h3>
-                <div id="fulfillmentText">
-                    Loading fulfillment details...
-                </div>
-            </div>
-        </div>
 
-        <!-- Conclusion Section -->
-        <div class="conclusion-section">
-            <h2 class="conclusion-title">The Unmistakable Pattern</h2>
-            
-            <div class="final-statement">
-                When examined individually, each prophecy provides compelling evidence. But when viewed together, 
-                they form an undeniable pattern that could only point to one person: Muhammad ibn Abdullah, 
-                the final messenger of God (peace be upon him). From his lineage as an Ishmaelite, to his mission 
-                to both Jews and Gentiles, to his bringing of a new revelation in a foreign language (Arabic), 
-                to his physical description, name, and seal of prophethood—every detail was foretold centuries 
-                before his birth.
-                <br><br>
-                The Quran confirms this truth: "Those who follow the Messenger, the unlettered prophet, whom 
-                they find written in what they have of the Torah and the Gospel..." (Quran 7:157). The evidence 
-                is clear for those who seek with an open heart and mind.
-            </div>
-            
-            <div class="islamic-affirmation">
-                <i class="fas fa-star-and-crescent"></i>
-                "Muhammad is not the father of any of your men, but he is the Messenger of Allah and the last of the prophets."
-                <span style="color: rgba(255, 255, 255, 0.8); font-size: 1rem; display: block; margin-top: 10px;">Quran 33:40</span>
-                <i class="fas fa-star-and-crescent"></i>
+                <!-- Prophecy 3 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">3</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">The Paraclete (Comforter)</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                John 14:16, 16:7
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "And I will ask the Father, and he will give you another Advocate to help you and be with you forever... Unless I go away, the Advocate will not come to you."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Greek "Parakletos" similar to "Periklytos" meaning "Praised One"</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Arabic "Ahmad" means "Most Praised One"</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Quran confirms Jesus prophesied Ahmad (61:6)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) came after Jesus, testified about him, and brought complete guidance.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 4 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">4</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">10,000 Saints from Paran</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Deuteronomy 33:2
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "The Lord came from Sinai and dawned over them from Seir; he shone forth from Mount Paran. He came with myriads of holy ones."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Paran is where Ishmael settled (Genesis 21:21)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muhammad received first revelation near Paran mountains</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Entered Mecca with 10,000 companions</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) received revelation in Paran region and returned to Mecca with 10,000 companions.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 5 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">5</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Physical Description</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Song of Solomon 5:10-16
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "My beloved is radiant and ruddy, outstanding among ten thousand. His head is purest gold; his hair is wavy and black as a raven."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Matches Muhammad's physical description exactly</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Ruddy complexion, black wavy hair, radiant face</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Monk Bahira recognized him from this description</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Christian monk Bahira recognized young Muhammad from this biblical description.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 6 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">6</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Seal of Prophethood</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Isaiah 9:6
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "For to us a child is born, to us a son is given, and the government will be on his shoulders."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>"Government on his shoulders" - literal seal between shoulder blades</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muhammad had physical seal of prophethood on his back</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Bahira checked specifically for this sign</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) had the physical seal of prophethood between his shoulder blades.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 7 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">7</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Nations Prostrate to God</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Psalm 22:27-28
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "All the ends of the earth will remember and turn to the Lord, and all the families of the nations will bow down before him."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muslims prostrate in prayer 5 times daily</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Islam spread to all nations who now prostrate to One God</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Quran says Muslims were prophesied in Torah as "prostrating"</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Through Muhammad's message, billions across all nations prostrate to Allah daily.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 8 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">8</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Lips Anointed with Grace</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Psalm 45:2
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "You are the most excellent of men and your lips have been anointed with grace, since God has blessed you forever."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muhammad was called "the most excellent of creation"</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>His speech contained divine grace and wisdom</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Received revelation orally (through his lips)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad's (PBUH) speech, especially the Quran revealed through him, is filled with divine grace.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 9 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">9</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Prayer and Praise Continually</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Psalm 72:15
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "Long may he live! May gold from Sheba be given to him. May people ever pray for him and bless him all day long."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muslims pray for Muhammad in every prayer</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Send blessings on him daily</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Continuous remembrance worldwide in five daily prayers</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>In every one of the five daily prayers, Muslims send blessings upon Muhammad (PBUH).</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 10 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">10</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Pilgrimage to Becca (Mecca)</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Psalm 84:5-6
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "Blessed are those whose strength is in you, whose hearts are set on pilgrimage. As they pass through the Valley of Baka, they make it a place of springs."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Baka is ancient name for Mecca (Quran 3:96)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Annual Hajj pilgrimage to Mecca</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Zamzam spring in Mecca valley</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Millions of Muslims annually pilgrimage to Mecca (Baka) following Muhammad's restoration of Abraham's pilgrimage.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 11 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">11</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Nations Come to Zion</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Isaiah 2:2-3
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "In the last days the mountain of the Lord's temple will be established... and all nations will stream to it. Many peoples will come and say, 'Come, let us go up to the mountain of the Lord... He will teach us his ways.'"
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muslims freed Jerusalem from Roman oppression</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muslims, Jews, Christians all prospered and learned at Zion</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>New law (Shariah) taught to all nations</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Under Islamic rule, Jerusalem became accessible to all Abrahamic faiths for pilgrimage and learning.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 12 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">12</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Pray Shoulder to Shoulder</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Zephaniah 3:9
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "Then I will purify the lips of the peoples, that all of them may call on the name of the Lord and serve him shoulder to shoulder."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muslims pray in congregation shoulder to shoulder</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Quran recited with purified tongues</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Standard Muslim prayer format worldwide</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muslim congregational prayer established by Muhammad (PBUH) fulfills this exact description.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 13 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">13</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Revelation in Foreign Tongue</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Isaiah 28:11
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "Very well then, with foreign lips and strange tongues God will speak to this people."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Quran revealed in Arabic to Hebrew-speaking Jews</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Quran begins with disjointed Arabic letters (Alif Lam Mim)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Isaiah mentions "sav lasav, sav lasav, kav lakav, kav lakav"</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>The Quran was revealed in Arabic, a "foreign tongue" to the original Israelite recipients.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 14 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">14</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">The Unlettered Prophet Reads</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Isaiah 29:12
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "Then the book will be given to the one who is illiterate, saying, 'Please read this.' And he will say, 'I cannot read.'"
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muhammad was unlettered (ummi)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Angel Gabriel asked him to read, he replied "I cannot read"</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>First revelation began with "Read!"</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad's (PBUH) first revelation matches this prophecy exactly - an unlettered man receiving divine scripture.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 15 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">15</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Calling on God's Name</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Isaiah 41:25
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "I have stirred up one from the north, and he comes—one from the rising sun who calls on my name."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Comes from north/rising sun (Arabia relative to Israel)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Hebrew "Yekorabesmi" sounds like "Iqra bismi Rabbik" (Read in name of your Lord)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>First revelation began with calling on God's name</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) received revelation beginning with "Read in the name of your Lord."</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 16 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">16</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Light to the Gentiles</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Isaiah 42:1-4
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "Here is my servant... I will put my Spirit on him, and he will bring justice to the nations... he will not falter or be discouraged till he establishes justice on earth."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Brought justice to nations through Islamic law</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Light to Gentiles (non-Jewish nations)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Freed captives and relieved burdens</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) established justice, brought light to Gentiles, and freed the oppressed.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 17 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">17</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Qedar Rejoices</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Isaiah 42:11
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "Let the wilderness and its towns raise their voices; let the settlements where Kedar lives rejoice."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Qedar was son of Ishmael (Genesis 25:13)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Arab tribes descended from Qedar</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Arabian tribes rejoiced at Muhammad's message</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Arab tribes descended from Qedar accepted Islam and rejoiced in Muhammad's message.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 18 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">18</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Camel Rider from Arabia</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Isaiah 21:7
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "When he sees chariots with teams of horses, riders on donkeys or riders on camels, let him be alert, fully alert."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-arrow-right"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Donkey rider = Jesus (Zechariah 9:9, Gospels)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Camel rider = Muhammad (rode camel in battles)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Both mentioned as signs before Babylon's destruction</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) as camel rider and Jesus as donkey rider - both prophets foretold together.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 19 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">19</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">God Comes from South</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Habakkuk 3:3
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "God came from Teman, the Holy One from Mount Paran."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Teman = south (Arabia is south of Israel)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Mount Paran = where Ishmael settled</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Matches Deuteronomy 33:2 prophecy</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Revelation came to Muhammad (PBUH) from Paran/Teman region (Arabia south of Israel).</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 20 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">20</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Prophet's Heart Awake</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Song of Solomon 5:2
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "I slept but my heart was awake."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Prophets described as sleeping with wakeful hearts</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muhammad received revelations in sleep/dreams</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Night Journey occurred while "sleeping"</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) received divine communication while in states between sleep and wakefulness.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 21 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">21</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Second Exile Ends</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Psalm 74:9
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "We are given no signs from God; no prophets are left, and none of us knows how long this will be."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Describes Roman exile (70 AD onward) - no prophets</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Babylonian exile had prophets (Jeremiah, Ezekiel, Daniel)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muhammad ended Roman exile for Jews</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) freed Jews from Roman oppression, ending their second exile.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 22 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">22</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Messenger to the Temple</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Malachi 3:1
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "See, I will send my messenger, who will prepare the way before me. Then suddenly the Lord you are seeking will come to his temple."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Written after Babylonian exile, applies to Roman exile</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Messenger = Muhammad who freed Jews</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Came suddenly to temple in Night Journey</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>In his Night Journey, Muhammad (PBUH) was miraculously taken to the temple in Jerusalem.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 23 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">23</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Fifth Kingdom</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Daniel 2:44
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "In the time of those kings, the God of heaven will set up a kingdom that will never be destroyed... It will crush all those kingdoms and bring them to an end, but it will itself endure forever."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Four kingdoms: Babylon, Persia, Greece, Rome</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Fifth kingdom = Islamic Caliphate</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Came after Rome divided (395 AD)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>The Islamic Caliphate established by Muhammad's successors became the fifth and final kingdom.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 24 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">24</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Kingdom Given to Gentiles</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Matthew 21:43
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "Therefore I tell you that the kingdom of God will be taken away from you and given to a people who will produce its fruit."
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Points to Muhammad (PBUH):
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>After temple destruction (70 AD), message to Gentiles</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Jesus and disciples came before temple destruction</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Muhammad brought message to Gentiles after 70 AD</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Muhammad (PBUH) brought God's message to the Gentiles after the second temple destruction.</p>
+                    </div>
+                </div>
+
+                <!-- Prophecy 25 -->
+                <div class="prophecy-card">
+                    <div class="card-header">
+                        <div class="card-number">25</div>
+                        <div class="card-title-section">
+                            <h2 class="card-title">Ahmad in Quran Confirmed</h2>
+                            <div class="card-reference">
+                                <i class="fas fa-bible"></i>
+                                Quran 61:6
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bible-verse">
+                        "And [mention] when Jesus, the son of Mary, said, 'O children of Israel, indeed I am the messenger of Allah to you confirming what came before me of the Torah and bringing good tidings of a messenger to come after me, whose name is Ahmad.'"
+                    </div>
+                    
+                    <div class="evidence-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Biblical Support:
+                        </h3>
+                        <div class="evidence-points">
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Song of Solomon 5:16 - "machmadim" (altogether lovely)</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Isaiah 42:1 - "etmak" (possibly original "Ahmad")</span>
+                            </div>
+                            <div class="evidence-point">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Haggai 2:7 - "hemdat" (desire of all nations)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fulfillment-section">
+                        <h3 class="fulfillment-title">
+                            <i class="fas fa-star"></i>
+                            Fulfillment:
+                        </h3>
+                        <p>Multiple Hebrew words in the Bible point to the name Ahmad/Muhammad, the "Praised One."</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
-    <!-- Floating Footer -->
-    <footer class="floating-footer">
-        <div class="container">
-            <div id="footerContent">
-                <h3>Akhi ex responds</h3>
-                Methodology: primary texts, textual criticism, historical sources. Designed for mobile-first experience.
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
     <script>
-        // Prophecy Data - 25 prophecies from the transcripts
-        const prophecies = [
-            {
-                id: 1,
-                title: "The Prophet Like Moses",
-                reference: "Deuteronomy 18:18",
-                verse: "I will raise up for them a prophet like you from among their brothers. I will put my words in his mouth, and he will tell them everything I command him.",
-                muhammadEvidence: [
-                    "Comes from 'brothers' of Israelites (Ishmaelites, not Israelites)",
-                    "Brought a complete law (Shariah) like Moses",
-                    "Spoke God's words directly (Quranic revelation)",
-                    "Was a law-giving prophet like Moses"
-                ],
-                refutation: [
-                    "Jesus was from Israelites, not their 'brothers' (Ishmaelites)",
-                    "Jesus said he came to fulfill the law, not bring a new one (Matthew 5:17)",
-                    "Jesus' teachings were continuations, not a new complete legal system",
-                    "Early Christians continued following Mosaic law"
-                ],
-                fulfillment: "Muhammad (PBUH) was an Ishmaelite descendant who received the Quran containing complete divine law, establishing a new nation with comprehensive legislation."
-            },
-            {
-                id: 2,
-                title: "The Name 'Muhammad' in Hebrew",
-                reference: "Song of Solomon 5:16",
-                verse: "His mouth is sweetness itself; he is altogether lovely (מַחֲמַדִּים - machmadim). This is my beloved, this is my friend, daughters of Jerusalem.",
-                muhammadEvidence: [
-                    "Hebrew 'machmadim' means 'altogether lovely' or 'most praised one'",
-                    "Muhammad means 'the praised one' in Arabic",
-                    "Name appears in plural of respect form (like Elohim for God)",
-                    "Early Christians translated names, hiding the prophecy"
-                ],
-                refutation: [
-                    "Christian translations hide the name by translating it",
-                    "No other prophet's name is translated in this way",
-                    "If it meant 'altogether lovely', why use plural form?",
-                    "The context describes a specific person, not a quality"
-                ],
-                fulfillment: "The Hebrew text contains Muhammad's name exactly. Christian translators rendered it as 'altogether lovely' instead of transliterating the name, as they do with other proper names."
-            },
-            {
-                id: 3,
-                title: "Paraclete - The Comforter",
-                reference: "John 14:16, 16:7",
-                verse: "And I will ask the Father, and he will give you another Advocate (Paraclete) to help you and be with you forever... Unless I go away, the Advocate will not come to you; but if I go, I will send him to you.",
-                muhammadEvidence: [
-                    "Greek 'Parakletos' sounds like 'Periklytos' meaning 'Praised One'",
-                    "Arabic 'Ahmad' means 'Most Praised One'",
-                    "Jesus says this comforter will 'teach all things' and 'guide into all truth'",
-                    "Quran confirms Jesus prophesied Ahmad (61:6)"
-                ],
-                refutation: [
-                    "Holy Spirit is neuter gender in Greek, but Paraclete has 8 masculine pronouns",
-                    "Holy Spirit already existed before Jesus' departure",
-                    "Holy Spirit doesn't 'testify about Jesus' to the world as described",
-                    "Jesus says 'another' comforter - implying another human prophet like himself"
-                ],
-                fulfillment: "Muhammad (PBUH) testified about Jesus, corrected Christian errors, brought complete guidance, and his name Ahmad matches the Greek Periklytos meaning 'Most Praised'."
-            },
-            {
-                id: 4,
-                title: "10,000 Saints from Paran",
-                reference: "Deuteronomy 33:2",
-                verse: "The Lord came from Sinai and dawned over them from Seir; he shone forth from Mount Paran. He came with myriads of holy ones from the south, from his mountain slopes.",
-                muhammadEvidence: [
-                    "Paran is where Ishmael settled (Genesis 21:21)",
-                    "Muhammad received first revelation near Paran mountains",
-                    "He entered Mecca with 10,000 companions (saints)",
-                    "Three locations: Sinai (Moses), Seir (Jesus), Paran (Muhammad)"
-                ],
-                refutation: [
-                    "Jesus ministered in Galilee/Judea, not Paran desert",
-                    "Jesus never led 10,000 armed followers",
-                    "Paran is specifically Arabia, not Palestine",
-                    "Context is God's manifestation, not Jesus specifically"
-                ],
-                fulfillment: "Muhammad (PBUH) received revelation in Paran region (Mecca), and returned to Mecca with exactly 10,000 companions, establishing Islamic rule."
-            },
-            {
-                id: 5,
-                title: "Physical Description in Song of Solomon",
-                reference: "Song of Solomon 5:10-16",
-                verse: "My beloved is radiant and ruddy, outstanding among ten thousand. His head is purest gold; his hair is wavy and black as a raven... His mouth is sweetness itself; he is altogether lovely.",
-                muhammadEvidence: [
-                    "Matches Muhammad's physical description exactly",
-                    "Ruddy complexion, black wavy hair, radiant face",
-                    "Outstanding among 10,000 (his companions)",
-                    "Monk Bahira recognized him from this description"
-                ],
-                refutation: [
-                    "Jesus is traditionally depicted with different features",
-                    "No early source describes Jesus this way",
-                    "This is poetic love language, not prophecy (they claim)",
-                    "But specific details match Muhammad exactly"
-                ],
-                fulfillment: "Christian monk Bahira recognized young Muhammad from this biblical description, confirming he was the awaited prophet."
-            },
-            {
-                id: 6,
-                title: "Seal of Prophethood",
-                reference: "Isaiah 9:6",
-                verse: "For to us a child is born, to us a son is given, and the government will be on his shoulders. And he will be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace.",
-                muhammadEvidence: [
-                    "Government 'on his shoulders' - literal seal between shoulder blades",
-                    "Muhammad had physical seal of prophethood on his back",
-                    "Bahira checked specifically for this sign",
-                    "Established Islamic state (government)"
-                ],
-                refutation: [
-                    "Christian interpretation is metaphorical 'burden of government'",
-                    "No Christian claims Jesus had physical mark on shoulders",
-                    "Isaiah says 'Mighty God' - Christians apply this to Jesus' divinity",
-                    "But Muhammad established actual government, Jesus didn't"
-                ],
-                fulfillment: "Muhammad (PBUH) had the physical seal of prophethood between his shoulder blades, bore the burden of establishing God's government on earth."
-            },
-            {
-                id: 7,
-                title: "Nations Prostrate to God",
-                reference: "Psalm 22:27-28",
-                verse: "All the ends of the earth will remember and turn to the Lord, and all the families of the nations will bow down before him, for dominion belongs to the Lord and he rules over the nations.",
-                muhammadEvidence: [
-                    "Muslims prostrate in prayer 5 times daily",
-                    "Islam spread to all nations who now prostrate to One God",
-                    "Quran says Muslims were prophesied in Torah as 'prostrating'",
-                    "Universal prostration to Allah alone"
-                ],
-                refutation: [
-                    "Christians don't physically prostrate in worship",
-                    "Jesus didn't institute daily prostration",
-                    "Christian worship is sitting/standing, not full prostration",
-                    "This describes literal physical bowing down"
-                ],
-                fulfillment: "Through Muhammad's message, billions across all nations prostrate to Allah daily in the Islamic prayer (Salah)."
-            },
-            {
-                id: 8,
-                title: "Lips Anointed with Grace",
-                reference: "Psalm 45:2",
-                verse: "You are the most excellent of men and your lips have been anointed with grace, since God has blessed you forever.",
-                muhammadEvidence: [
-                    "Muhammad was called 'the most excellent of creation'",
-                    "His speech contained divine grace and wisdom",
-                    "Received revelation orally (through his lips)",
-                    "Arabic Quran is called 'graceful speech'"
-                ],
-                refutation: [
-                    "Psalm is about a king's wedding, not Jesus specifically",
-                    "Jesus' teachings were often harsh, not just 'graceful'",
-                    "Context is earthly king, not messianic prophecy",
-                    "But matches Muhammad's character perfectly"
-                ],
-                fulfillment: "Muhammad's (PBUH) speech, especially the Quran revealed through him, is filled with divine grace, wisdom and eloquence."
-            },
-            {
-                id: 9,
-                title: "Prayer and Praise Continually",
-                reference: "Psalm 72:15",
-                verse: "Long may he live! May gold from Sheba be given to him. May people ever pray for him and bless him all day long.",
-                muhammadEvidence: [
-                    "Muslims pray for Muhammad in every prayer",
-                    "Send blessings on him daily",
-                    "Continuous remembrance worldwide",
-                    "Five daily prayers include Muhammad"
-                ],
-                refutation: [
-                    "Christians don't pray to Jesus continually",
-                    "Lord's Prayer is to Father, not Jesus",
-                    "No Christian practice of praying for Jesus all day",
-                    "Muslim practice matches this exactly"
-                ],
-                fulfillment: "In every one of the five daily prayers, and whenever Muslims mention his name, they send blessings upon Muhammad (PBUH)."
-            },
-            {
-                id: 10,
-                title: "Pilgrimage to Becca (Mecca)",
-                reference: "Psalm 84:5-6",
-                verse: "Blessed are those whose strength is in you, whose hearts are set on pilgrimage. As they pass through the Valley of Baka, they make it a place of springs; the autumn rains also cover it with pools.",
-                muhammadEvidence: [
-                    "Baka is ancient name for Mecca (Quran 3:96)",
-                    "Annual Hajj pilgrimage to Mecca",
-                    "Zamzam spring in Mecca valley",
-                    "Specific geographic location"
-                ],
-                refutation: [
-                    "No Christian pilgrimage to any 'Valley of Baka'",
-                    "Jesus never instituted pilgrimage to this location",
-                    "Christian pilgrimage sites are Jerusalem/Rome, not Arabia",
-                    "Only Muslims have pilgrimage to this specific valley"
-                ],
-                fulfillment: "Millions of Muslims annually pilgrimage to Mecca (Baka) following Muhammad's (PBUH) restoration of Abraham's pilgrimage."
-            }
-            // Note: 15 more prophecies would continue here in the full implementation
-            // For brevity, I'm showing 10, but the system supports 25
-        ];
-
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('mainNav');
-        
-        if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                mainNav.classList.toggle('active');
-                this.classList.toggle('active');
-            });
-            
-            document.addEventListener('click', function(event) {
-                if (!mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
-                    mainNav.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-            });
-            
-            if (mainNav.querySelectorAll('a').length > 0) {
-                mainNav.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mainNav.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                    });
-                });
-            }
-        }
-
-        // Generate Prophecy Cards
+        // Video error handling
         document.addEventListener('DOMContentLoaded', function() {
-            const grid = document.getElementById('prophecyGrid');
-            const detailPanel = document.getElementById('detailPanel');
-            const detailTitle = document.getElementById('detailTitle');
-            const bibleVerse = document.getElementById('bibleVerse');
-            const muhammadEvidence = document.getElementById('muhammadEvidence');
-            const refutationPoints = document.getElementById('refutationPoints');
-            const refutationSection = document.getElementById('refutationSection');
-            const fulfillmentText = document.getElementById('fulfillmentText');
-            const closeDetail = document.getElementById('closeDetail');
-
-            // Generate 25 cards (10 with data, 15 as placeholders for full implementation)
-            for (let i = 0; i < 25; i++) {
-                const card = document.createElement('div');
-                card.className = 'prophecy-card';
-                card.dataset.id = i + 1;
-                
-                if (i < prophecies.length) {
-                    // Card with actual data
-                    const prophecy = prophecies[i];
-                    card.innerHTML = `
-                        <div class="card-number">${prophecy.id}</div>
-                        <h3 class="card-title">${prophecy.title}</h3>
-                        <div class="card-reference">
-                            <i class="fas fa-bible"></i>
-                            ${prophecy.reference}
-                        </div>
-                        <p class="card-preview">${prophecy.verse.substring(0, 80)}...</p>
-                        <div class="click-indicator">
-                            <i class="fas fa-mouse-pointer"></i>
-                            Click for details
-                        </div>
-                    `;
-                } else {
-                    // Placeholder card for prophecies 11-25
-                    card.innerHTML = `
-                        <div class="card-number">${i + 1}</div>
-                        <h3 class="card-title">Prophecy ${i + 1}</h3>
-                        <div class="card-reference">
-                            <i class="fas fa-bible"></i>
-                            Biblical Reference
-                        </div>
-                        <p class="card-preview">Detailed analysis available in full implementation...</p>
-                        <div class="click-indicator">
-                            <i class="fas fa-mouse-pointer"></i>
-                            Click for preview
-                        </div>
-                    `;
-                    card.classList.add('loading-card');
-                }
-                
-                card.addEventListener('click', function() {
-                    const id = parseInt(this.dataset.id);
-                    
-                    // Remove active class from all cards
-                    document.querySelectorAll('.prophecy-card').forEach(c => {
-                        c.classList.remove('active');
-                    });
-                    
-                    // Add active class to clicked card
-                    this.classList.add('active');
-                    
-                    if (id <= prophecies.length) {
-                        // Show actual prophecy data
-                        const prophecy = prophecies[id - 1];
-                        
-                        detailTitle.textContent = `${prophecy.id}. ${prophecy.title}`;
-                        bibleVerse.textContent = prophecy.verse;
-                        
-                        // Clear and add Muhammad evidence
-                        muhammadEvidence.innerHTML = '';
-                        prophecy.muhammadEvidence.forEach(point => {
-                            const div = document.createElement('div');
-                            div.className = 'evidence-point';
-                            div.innerHTML = `
-                                <i class="fas fa-check-circle"></i>
-                                <span>${point}</span>
-                            `;
-                            muhammadEvidence.appendChild(div);
-                        });
-                        
-                        // Clear and add refutation points
-                        refutationPoints.innerHTML = '';
-                        prophecy.refutation.forEach(point => {
-                            const div = document.createElement('div');
-                            div.className = 'refutation-point';
-                            div.innerHTML = `
-                                <i class="fas fa-exclamation-circle"></i>
-                                <span>${point}</span>
-                            `;
-                            refutationPoints.appendChild(div);
-                        });
-                        
-                        // Show refutation section
-                        refutationSection.style.display = 'block';
-                        
-                        // Set fulfillment text
-                        fulfillmentText.innerHTML = prophecy.fulfillment;
-                    } else {
-                        // Show placeholder for prophecies 11-25
-                        detailTitle.textContent = `Prophecy ${id}`;
-                        bibleVerse.textContent = "Full detailed analysis of this prophecy will be included in the complete implementation. The evidence follows the same pattern as the first 10 prophecies.";
-                        
-                        muhammadEvidence.innerHTML = `
-                            <div class="evidence-point">
-                                <i class="fas fa-check-circle"></i>
-                                <span>This prophecy points clearly to Muhammad (PBUH) based on historical and textual evidence</span>
-                            </div>
-                        `;
-                        
-                        refutationPoints.innerHTML = `
-                            <div class="refutation-point">
-                                <i class="fas fa-exclamation-circle"></i>
-                                <span>This cannot refer to Jesus for specific contextual and historical reasons</span>
-                            </div>
-                        `;
-                        
-                        refutationSection.style.display = 'block';
-                        fulfillmentText.innerHTML = "Muhammad (PBUH) fulfilled this prophecy exactly as foretold, adding to the cumulative evidence of his prophethood.";
-                    }
-                    
-                    // Show detail panel
-                    detailPanel.classList.add('active');
-                    
-                    // Scroll to detail panel
-                    detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-                
-                grid.appendChild(card);
-            }
-
-            // Close detail panel
-            closeDetail.addEventListener('click', function() {
-                detailPanel.classList.remove('active');
-                document.querySelectorAll('.prophecy-card').forEach(c => {
-                    c.classList.remove('active');
-                });
-                
-                // Scroll back to grid
-                document.getElementById('prophecyGrid').scrollIntoView({ behavior: 'smooth' });
-            });
-
-            // Video interaction
             const video = document.querySelector('video');
-            const videoWrapper = document.querySelector('.video-wrapper');
             
-            if (video && videoWrapper) {
-                video.addEventListener('play', function() {
-                    videoWrapper.style.transform = 'perspective(1000px) rotateX(0) scale(1.05)';
-                    videoWrapper.style.boxShadow = 
-                        'var(--shadow-strong), 0 0 100px rgba(0, 229, 255, 0.6), var(--shadow-neon)';
-                    videoWrapper.style.borderColor = 'rgba(0, 229, 255, 0.6)';
-                });
-                
-                video.addEventListener('pause', function() {
-                    videoWrapper.style.transform = 'perspective(1000px) rotateX(1deg) scale(1)';
-                    videoWrapper.style.boxShadow = 
-                        'var(--shadow-strong), 0 0 50px rgba(0, 229, 255, 0.3)';
-                    videoWrapper.style.borderColor = 'rgba(0, 229, 255, 0.2)';
-                });
-                
-                // If video doesn't load, show message
+            if (video) {
                 video.addEventListener('error', function() {
                     const container = document.querySelector('.video-hero-container');
                     const errorMsg = document.createElement('div');
@@ -1803,27 +1778,6 @@
                     container.appendChild(errorMsg);
                 });
             }
-            
-            // Add hover effects to evidence points
-            const evidencePoints = document.querySelectorAll('.evidence-point');
-            evidencePoints.forEach(point => {
-                point.addEventListener('mouseenter', function() {
-                    this.classList.add('highlight');
-                });
-                
-                point.addEventListener('mouseleave', function() {
-                    setTimeout(() => {
-                        this.classList.remove('highlight');
-                    }, 500);
-                });
-            });
-            
-            // Floating animation for card numbers
-            const cardNumbers = document.querySelectorAll('.card-number');
-            cardNumbers.forEach((number, index) => {
-                number.style.animationDelay = `${index * 0.1}s`;
-                number.classList.add('floating');
-            });
         });
     </script>
 </body>
